@@ -14,12 +14,12 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y python3-pip openjdk-17-jdk zip unzip
-        pip3 install buildozer cython
+        sudo apt install -y python3-pip openjdk-17-jdk zip unzip git
+        pip install --user buildozer==1.4.2 cython
 
     - name: Build APK
       run: |
-        buildozer android debug
+        ~/.local/bin/buildozer android debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
